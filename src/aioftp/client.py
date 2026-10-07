@@ -985,8 +985,7 @@ class Client(BaseClient):
                             raise StopAsyncIteration
 
                     name, info = cls.parse_line(line)
-                    # skipping . and .. as these are symlinks in Unix
-                    if str(name) in (".", ".."):
+                    if not name.parts or ".." in name.parts:
                         continue
                     stat = cls.path / name, info
                     if info["type"] == "dir" and recursive:

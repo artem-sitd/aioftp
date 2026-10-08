@@ -151,7 +151,7 @@ class BasicListInfo(TypedDict):
     modify: str
     type: str
     create: NotRequired[str]
-    size: str
+    size: NotRequired[str]
 
 
 ListInfo = BasicListInfo | UnixListInfo
